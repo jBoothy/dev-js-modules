@@ -15,6 +15,10 @@ console.log("Importing module");
 // console.log(ShoppingCart.totalPrice);
 
 // Default Export --------------------------------------------------
-import add from './shoppingCart.js';
-add('pizza', 2);
+import add, { cart } from './shoppingCart.js';
+add('pizza', 3);
+add('taquito', 12);
+add('steak', 2);
+
+console.log(cart)
 //------------------------------------------------------------------
