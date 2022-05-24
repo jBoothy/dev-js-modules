@@ -14,6 +14,7 @@ console.log("Importing module");
 // ShoppingCart.addToCart('bread', 5);
 // console.log(ShoppingCart.totalPrice);
 
+/*
 // Default Export --------------------------------------------------
 import add, { cart } from './shoppingCart.js';
 add('pizza', 3);
@@ -51,3 +52,33 @@ const lastPost = getLastPost();
 // Clean
 const lastPost2 = await getLastPost();
 console.log(lastPost2);
+*/
+//------------------------------------------------------------------
+// Module Pattern
+const ShoppingCart2 = (function(){
+    const cart = [];
+    const shippingCost = 10;
+    const totalPrice = 237;
+    const totalQuantity = 23;
+
+    const addToCart = function(product, quantity){
+        cart.push({product, quantity})
+        console.log(`${quantity} ${product}(s) were added to the cart.`)
+    };
+
+    const orderStock = function(product, quantity){
+        console.log(`${quantity} ${product}(s) were ordered from supplier.`)
+    };
+
+    return{
+        addToCart,
+        cart,
+        totalPrice,
+        totalQuantity
+    }
+})();
+
+ShoppingCart2.addToCart('apple', 4)
+ShoppingCart2.addToCart('pizza', 2)
+console.log(ShoppingCart2)
+//------------------------------------------------------------------
